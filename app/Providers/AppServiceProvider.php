@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use Illuminate\Routing\Router;
+use Illuminate\Contracts\Http\Kernel;
+use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -17,8 +20,11 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
+
+    public function boot(Router $router): void
     {
-        //
-    }
+        // Enregistrer le middleware personnalisé 'role'
+        $router->aliasMiddleware('role', RoleMiddleware::class);
+    }   
+
 }

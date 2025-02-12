@@ -5,7 +5,7 @@ namespace App\Http\Controllers\WEB\AGENT;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AgentDashboardController extends Controller
+class AgentController extends Controller
 {
     public function index(Request $request){
         return view('admin.dashboard.index');
